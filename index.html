@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>cjs&esm</title>
+</head>
+<body>
+	<script type="text/javascript">
+		console.log('page start');
+		window.addEventListener('DOMContentLoaded', function function_name(argument) {
+			console.log('DOMContentLoaded')
+		});
+	</script>
+	<h2>使用了 type = module,script 标签，默认是带有 defer 属性的，也就是代码不会阻塞dom解析，然后模块的代码执行完成后，才会触发 DOMContentLoaded 事件。</h2>
+	<script type="module" src="./main.mjs"></script>
+	<script type="module">
+		console.log('page inline module js')
+	</script>
+	<script>
+		console.log('page normal')
+	</script>
+	<script type="text/javascript">
+		console.log('page end')
+	</script>
+	更多 script module 说明：
+	https://www.webhek.com/post/ecmascript-modules-in-browsers.html
+</body>
+</html>
